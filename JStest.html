@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Task</title>
 </head>
+
 <body>
     <p id="demo"></p>
     <p id="demo2"></p>
@@ -18,9 +20,9 @@
 
         const person = {
             firstName: "John",
-            lastName : "Wick",
-            id       : 5566,
-            fullName : function() {
+            lastName: "Wick",
+            id: 5566,
+            fullName: function () {
                 return this.firstName + " " + this.lastName;
             }
         };
@@ -28,10 +30,14 @@
         document.getElementById("demo").innerHTML = person.fullName();
 
         function toCelsius(fahrenheit) {
-            return (5/9) * (fahrenheit-32);
+            return (5 / 9) * (fahrenheit - 32);
         }
         let t = 77;
         document.getElementById("demo2").innerHTML = `Temperature of ${t} in Celsius is ${toCelsius(t)} in Fahrenheit`;
+
+        const dieToss = () => Math.trunc(Math.random() * 6) + 1;
+        document.querySelector("#demo3").innerHTML = `${dieToss()} , ${dieToss()}`;
     </script>
 </body>
+
 </html>

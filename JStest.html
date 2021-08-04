@@ -16,9 +16,19 @@
       <button onclick="dietossbtn()">Die Toss</button>
     </div>
 
+    <div>
+      <label for="tagin">Enter Tag Name</label>
+      <input type="text" id="tagin" />
+
+      <label for="valin">Enter Value Name</label>
+      <input type="text" id="valin" />
+
+      <h3 id="tagvaloutput"></h3>
+      <button onclick="showTagVal()">click to show tag &amp; val output</button>
+    </div>
+
     <script>
       var pi = 3.14;
-      // var person = "John Doe";
       var answer = "Yes I am!";
 
       const person = {
@@ -42,13 +52,48 @@
         t
       )} in Fahrenheit`;
 
-      const enclose = (tag, val) => `<${tag}>${val}</${tag}>`;
-
       function dietossbtn() {
         const dieToss = () => Math.trunc(Math.random() * 6) + 1;
         document.querySelector(
           "#demo3"
         ).innerHTML = `${dieToss()} , ${dieToss()}`;
+      }
+
+      const enclose = (tag, val) => `<${tag}>${val}</${tag}>`;
+      function showTagVal() {
+        let tag = document.querySelector("#tagin").value;
+        let val = document.querySelector("#valin").value;
+        document.querySelector("#tagvaloutput").innerHTML = `${enclose(
+          tag,
+          val
+        )}`;
+      }
+
+      let makeCounter = (start) => {
+        let current = start - 1;
+        console.log(`current value: ${current}`);
+        const updater = () => {
+          current++;
+          return current;
+        };
+        return updater;
+      };
+
+      function sumAll2(...args) {
+        console.log(args);
+        let sum = 0;
+        for (let i = 0; i < args.length; i++) {
+          console.log(`-->> ${args[i]}`);
+        }
+      }
+
+      function sumAll() {
+        console.log(arguments);
+        let sum = 0;
+        for (let i = 0; i < arguments.length; i++) {
+          console.log(arguments[i]);
+        }
+        return sum;
       }
     </script>
   </body>
